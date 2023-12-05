@@ -7,15 +7,20 @@ on:
 jobs:
   build:
     runs-on: self-hosted
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+    - uses: actions/checkout@v3
 
-    - name: Use Node.js
+    - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
 
-    - name: Install project dependencies
-      run: npm install
+    - run: npm ci
 
-    - name: Restart PM2 process
-      run: pm2 restart backendserver
+    - run: pm2 restart backendserver
