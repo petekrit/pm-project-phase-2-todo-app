@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>EJS App</title>
+</head>
+
+<body>
+    <div class="app-container">
+        <form class="todo-container" onsubmit="addTask(event)">
+            <!-- Add 'event' parameter to pass the event object -->
+            <h1>Todo App</h1>
+            <div class="add-task">
+                <input type="text" id="new-task" placeholder="New Task">
+                <button type="submit">Add Task</button>
+            </div>
+        </form>
+        <%- include('list', { tasks: tasks }) %>
+    </div>
+    <script src="script.js" defer></script>
+</body>
+
+</html>
