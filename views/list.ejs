@@ -1,0 +1,10 @@
+<div id="list-todo">
+    <% for(let i=0; i<tasks.length; i++) { %>
+        <li>
+            <span>
+                <%= tasks[i].value %>
+            </span>
+            <button class="remove-btn" data-task-id="<%= tasks[i].id %>">Remove</button>
+        </li>
+        <% } %>
+</div>
