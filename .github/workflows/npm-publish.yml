@@ -32,21 +32,6 @@ jobs:
 
     - name: Install dependencies
       run: npm install
-
-    - name: Set up environment variables
-      run: |
-        echo "PORT=3000" >> .env
-        echo "DB_USER=${{ secrets.DB_USER }}" >> .env
-        echo "DB_HOST=${{ secrets.DB_HOST }}" >> .env
-        echo "DB_NAME=${{ secrets.DB_NAME }}" >> .env
-        echo "DB_PASSWORD=${{ secrets.DB_PASSWORD }}" >> .env
-        echo "DB_PORT=${{ secrets.DB_PORT }}" >> .env
-      env:
-        DB_USER: ${{ secrets.DB_USER }}
-        DB_HOST: ${{ secrets.DB_HOST }}
-        DB_NAME: ${{ secrets.DB_NAME }}
-        DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
-        DB_PORT: ${{ secrets.DB_PORT }}
-
+      
     - name: Restart PM2
       run: pm2 restart backendserver
