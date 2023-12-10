@@ -1,7 +1,9 @@
 {
   "scripts": {
     "start": "node app.js",
-    "test": "jest"
+    "test": "jest",
+    "test::smoke": "k6 run ./__tests__/smoke_testing.js",
+    "test::load": "k6 run ./__tests__/load_testing.js"
   },
   "dependencies": {
     "body-parser": "^1.20.2",
